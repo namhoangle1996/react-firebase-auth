@@ -19,8 +19,12 @@ export function signOut() {
 export function verifyEmail() {
     return auth().currentUser.sendEmailVerification({url: "http://localhost:3001/chat"})
 }
-export  function signInWithPhone() {
-    
+export  function signInWithPhone(phoneNumber) {
+    auth().languageCode= 'vn';
+    var appVerifier = new auth.RecaptchaVerifier('recaptcha-container');
+    return auth().signInWithPhoneNumber(phoneNumber, appVerifier).then( (confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+    } )
 }
 
 

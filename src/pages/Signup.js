@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, {useState} from 'react';
-import {signInWithGoogle, signup} from '../helpers/auth';
+import {signInWithGoogle, signInWithPhone, signup} from '../helpers/auth';
 import { useForm } from "react-hook-form";
 
 
@@ -57,7 +57,9 @@ export default function Signup() {
                             Sign up with Google
                         </button>
                         <p>Or</p>
-                        <button  className="button is-warning" onClick={() => googleSignIn()} type="button">
+                        <div id="recaptcha-container"/>
+
+                        <button  className="button is-warning" onClick={() => signInWithPhone("+84967223509")} type="button">
                             Sign up with phone number
                         </button>
                     </div>
